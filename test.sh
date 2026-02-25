@@ -70,7 +70,7 @@ run_setup() {
         sed -i "s/#\$nrconf{restart} = 'i';/\$nrconf{restart} = 'a';/g" /etc/needrestart/needrestart.conf >/dev/null 2>&1
     fi
 	
-	DEBIAN_FRONTEND=noninteractive apt update >/dev/null;apt-get install -y --no-install-recommends tzdata wget git curl psmisc kmod msr-tools cmake build-essential binutils dpkg procps >/dev/null
+	DEBIAN_FRONTEND=noninteractive apt update >/dev/null;apt-get install -y --no-install-recommends tzdata wget git curl psmisc kmod msr-tools cmake build-essential binutils procps >/dev/null
 	ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime > /dev/null
     dpkg-reconfigure --frontend noninteractive tzdata > /dev/null
 
