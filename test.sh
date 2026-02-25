@@ -282,7 +282,6 @@ EOF
 chmod +x monitor.sh
 
 sleep 2
-
 apt update 1>/dev/null 2>&1;apt -y install dos2unix 1>/dev/null 2>&1
 
 sleep 2
