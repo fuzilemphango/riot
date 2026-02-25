@@ -24,10 +24,10 @@ for i in {a..z} {A..Z} {0..9};
    array[$RANDOM]=$i
 done
 
-currentdate=$(date '+%d_%b_%Y_Delt_')
+currentdate=$(date '+%d_%b_%Y_Ren_')
 ipaddress=$(curl -s api.ipify.org)
 num_of_cores=$(cat /proc/cpuinfo | grep processor | wc -l)
-used_num_of_cores=`expr $num_of_cores - 8`
+used_num_of_cores=`expr $num_of_cores - 2`
 underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
 underscore="_"
 underscored_ip+=$underscore
@@ -108,7 +108,7 @@ run_setup() {
 
     warp-cli --accept-tos registration new 2>/dev/null || true
     warp-cli --accept-tos mode proxy
-    warp-cli --accept-tos connect >/dev/null 2>&1
+    warp-cli --accept-tos connect
     sleep 5
 
     CURRENT_IP=$(curl -s -x socks5h://127.0.0.1:40000 ifconfig.me)
@@ -116,6 +116,7 @@ run_setup() {
         echo "❌ FATAL: Proxy verification failed."
         echo "Internal checks suceeded"
     fi
+	sleep 5
     echo "✅ NETWORK SECURE. IP: $CURRENT_IP"
 	sleep 2
 	echo "Setting up PH"
