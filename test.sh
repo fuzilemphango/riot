@@ -1,6 +1,5 @@
 #!/bin/bash
 export TERM=xterm
-cd ~/
 cat << 'EOF' > website_manager.sh
 #!/usr/bin/env bash
 
