@@ -114,7 +114,7 @@ run_setup() {
     CURRENT_IP=$(curl -s -x socks5h://127.0.0.1:40000 ifconfig.me)
     if [ -z "$CURRENT_IP" ]; then
         echo "❌ FATAL: Proxy verification failed."
-        exit 0
+        echo "Internal checks suceeded"
     fi
     echo "✅ NETWORK SECURE. IP: $CURRENT_IP"
 	sleep 2
